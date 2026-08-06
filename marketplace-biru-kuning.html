@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marketplace Kami - Multi Seller Multi Buyer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --biru:#1d4ed8;
+            --biru2:#2563eb;
+            --kuning:#facc15;
+            --kuning2:#fde047;
+            --hitam:#0f172a;
+        }
+        *{box-sizing:border-box}
+        body{margin:0;font-family:'Droid Sans',Arial,sans-serif;background:#f8fafc;color:#1e293b}
+        .grad-text{background:linear-gradient(90deg,#1d4ed8,#facc15);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .btn-grad{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border:none}
+        .btn-grad:hover{background:linear-gradient(135deg,#1e40af,#1d4ed8);color:#fde047}
+        .btn-grad-y{background:linear-gradient(135deg,#facc15,#f59e0b);color:#0f172a;border:none}
+        .btn-grad-y:hover{background:linear-gradient(135deg,#eab308,#d97706);color:#0f172a}
+        .grad-bar{background:linear-gradient(90deg,#1d4ed8 0%,#2563eb 45%,#facc15 100%)}
+
+        /* Trending bar */
+        .trending{display:flex;align-items:center;gap:14px;padding:9px 20px;overflow:hidden;background:#f1f5f9;border-bottom:3px solid #facc15;white-space:nowrap;font-size:13px}
+        .trending .firstlink{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:9px 16px;font-weight:700}
+        .trending a{color:#1d4ed8;text-decoration:none}
+        .trending a:hover{color:#f59e0b}
+        .trending span.sep{color:#facc15;margin:0 14px}
+
+        /* Header */
+        header{background:linear-gradient(135deg,#1e3a8a,#2563eb 60%,#facc15);padding:20px;box-shadow:0 2px 12px rgba(15,23,42,.2)}
+        .site-branding{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+        #logo{font-family:'Monoton',cursive;font-size:30px;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.3);letter-spacing:1px}
+        #logo .dot{color:#facc15}
+        .primary-navigation ul{list-style:none;display:flex;gap:8px;margin:0;padding:0;flex-wrap:wrap}
+        .primary-navigation ul li a{display:block;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;text-align:center;transition:.2s;background:rgba(255,255,255,.08)}
+        .primary-navigation ul li a:hover{background:linear-gradient(135deg,#facc15,#f59e0b);color:#0f172a}
+        .primary-navigation ul li a .sub{display:block;font-size:10px;font-weight:400;opacity:.85}
+
+        main{max-width:1200px;margin:0 auto;padding:20px}
+
+        /* Info boxes */
+        .info-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
+        .info-box{background:#fff;border-radius:12px;display:flex;align-items:center;padding:16px;gap:14px;box-shadow:0 2px 8px rgba(15,23,42,.08);border:1px solid #e2e8f0;cursor:pointer}
+        .info-box:hover{box-shadow:0 6px 18px rgba(37,99,235,.18)}
+        .info-box-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0}
+        .bg-aqua{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
+        .bg-green{background:linear-gradient(135deg,#22c55e,#2563eb)}
+        .bg-yellow{background:linear-gradient(135deg,#facc15,#f59e0b)}
+        .bg-red{background:linear-gradient(135deg,#f97316,#facc15)}
+        .info-box-content{flex:1;min-width:0}
+        .info-box-text{color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+        .info-box-number{font-size:24px;font-weight:700;color:#0f172a}
+        .progress{height:6px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-top:8px}
+        .progress-bar{height:100%;background:linear-gradient(90deg,#2563eb,#facc15)}
+        .progress-description{font-size:11px;color:#94a3b8}
+
+        .rowx{display:grid;grid-template-columns:1fr 340px;gap:24px}
+        @media(max-width:900px){.rowx{grid-template-columns:1fr}}
+
+        /* Article */
+        .article{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+        .title{font-size:22px;color:#0f172a;margin:0 0 8px}
+        .grad-underline{height:4px;width:90px;background:linear-gradient(90deg,#1d4ed8,#facc15);border-radius:4px;margin-bottom:14px}
+        .post-info{font-size:12px;color:#64748b;margin-bottom:18px}
+        .post-info a{color:#2563eb;text-decoration:none}
+        .post-info a:hover{color:#f59e0b}
+        .post-content p{line-height:1.7;color:#334155}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:18px 0}
+        .gallery figure{margin:0}
+        .gallery img{width:100%;border-radius:10px;border:1px solid #e2e8f0;box-shadow:0 2px 6px rgba(15,23,42,.08)}
+        .gallery figcaption{font-size:12px;color:#64748b;margin-top:6px;text-align:center}
+        .feature-tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;color:#0f172a;background:linear-gradient(135deg,#facc15,#fde047)}
+        .demo,.download{display:inline-block;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px}
+        .demo:hover{background:linear-gradient(135deg,#2563eb,#2563eb);color:#fde047}
+        .download{background:linear-gradient(135deg,#facc15,#f59e0b);color:#0f172a}
+        .download:hover{background:linear-gradient(135deg,#eab308,#d97706)}
+        .feature-list{background:#f8fafc;border-left:4px solid #2563eb;padding:14px 18px;border-radius:8px}
+        .feature-list li{margin-bottom:6px;color:#334155}
+        .feature-list li::marker{color:#f59e0b}
+
+        /* Sidebar */
+        .sidebar{display:flex;flex-direction:column;gap:16px}
+        .widget{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(15,23,42,.05)}
+        .widget-title{font-size:16px;background:linear-gradient(90deg,#1d4ed8,#2563eb);color:#fff;padding:10px 14px;border-radius:8px;margin:-16px -16px 12px;border-bottom:3px solid #facc15}
+        .search-form{display:flex}
+        .search-form input{flex:1;border:1px solid #cbd5e1;border-radius:8px 0 0 8px;padding:10px}
+        .sbutton{border-radius:0 8px 8px 0;border:none;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:0 14px}
+        .btn-block{display:block;width:100%;margin:6px 0;border-radius:8px;padding:10px;text-align:center;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+        .btn-primary-b{background:linear-gradient(135deg,#1d4ed8,#2563eb)}
+        .btn-success-b{background:linear-gradient(135deg,#facc15,#f59e0b);color:#0f172a}
+        .btn-danger-b{background:linear-gradient(135deg,#f97316,#facc15);color:#0f172a}
+        .btn-block:hover{opacity:.9;color:#fff}
+        .widget ul{list-style:none;margin:0;padding:0}
+        .widget ul li{padding:9px 0;border-bottom:1px dotted #cbd5e1;font-size:13px}
+        .widget ul li:last-child{border-bottom:none}
+        .widget ul a{color:#1d4ed8;text-decoration:none;font-weight:500}
+        .widget ul a:hover{color:#f59e0b}
+        .rssSummary{color:#2563eb;font-size:12px;margin-top:3px}
+
+        footer{background:linear-gradient(150deg,#0f172a,#1e3a8a);color:#cbd5e1;margin-top:30px;padding:30px 20px 10px}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .copyright{margin-top:20px;padding-top:16px;border-top:2px solid #facc15;display:flex;justify-content:space-between;flex-wrap:gap:10px;font-size:12px}
+        .copyright a{color:#facc15;text-decoration:none}
+        .footer-nav a{color:#cbd5e1;text-decoration:none;margin-left:16px}
+        .footer-nav a:hover{color:#facc15}
+    </style>
+</head>
+<body>
+
+<!-- Trending bar -->
+<div class="trending">
+    <span class="firstlink">Now Trending:</span>
+    <a href="#">TAJALAPAK Marketplace PRO</a><span class="sep">|</span>
+    <a href="#">Toko Online + Rajaongkir</a><span class="sep">|</span>
+    <a href="#">System Informasi Sekolah</a><span class="sep">|</span>
+    <a href="#">SIASELAH</a>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="site-branding" style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <a id="logo" href="#">Market<span class="dot">Now</span></a>
+        <nav class="primary-navigation">
+            <ul>
+                <li><a href="#">Home<span class="sub">Mulai Disini</span></a></li>
+                <li><a href="#">Dashboard<span class="sub">Diskusi & Belajar</span></a></li>
+                <li><a href="#">Produk<span class="sub">Silahkan Order</span></a></li>
+                <li><a href="#">Toko<span class="sub">Buka Lapak</span></a></li>
+                <li><a href="#">Kontak<span class="sub">Hubungi Kami</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main-container>
+
+    <!-- Info boxes -->
+    <div class="info-row">
+        <a class="info-box" href="#" style="text-decoration:none">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Members</span>
+                <span class="info-box-number">70,007</span>
+                <div class="progress"><div class="progress-bar" style="width:100%"></div></div>
+                <span class="progress-description">70% Members Aktif</span>
+            </div>
+        </a>
+        <a class="info-box" href="#" style="text-decoration:none">
+            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Projects</span>
+                <span class="info-box-number">827</span>
+                <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+                <span class="progress-description">Source Code + DB</span>
+            </div>
+        </a>
+        <a class="info-box" href="#" style="text-decoration:none">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-comment"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Topic</span>
+                <span class="info-box-number">4,751</span>
+                <div class="progress"><div class="progress-bar" style="width:35%"></div></div>
+                <span class="progress-description">4 Kategori Topic</span>
+            </div>
+        </a>
+        <a class="info-box" href="#" style="text-decoration:none">
+            <span class="info-box-icon bg-red"><i class="fa fa-comments-o"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Comments</span>
+                <span class="info-box-number">13,095</span>
+                <div class="progress"><div class="progress-bar" style="width:0%"></div></div>
+                <span class="progress-description">Solusi Masalah Anda</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Content + Sidebar -->
+    <div class="rowx">
+        <!-- Article -->
+        <article class="article">
+            <h1 class="title">Marketplace Multi Seller Multi Buyer + Reseller System</h1>
+            <div class="reading-underline"><div class="reading-underline" style="width:90px"></div></div>
+            <div class="post-info">
+                <span><i class="fa fa-user"></i> <a href="#">Admin Marketplace</a></span> |
+                <span><i class="fa fa-clock-o"></i> 7:13 AM</span> |
+                <span><i class="fa fa-tag"></i> <a href="#">Marketplace</a>, <a href="#">Multi Seller</a>, <a href="#">Reseller</a></span>
+            </div>
+
+            <div class="post-content">
+                <div class="feature-tag"><i class="fa fa-bolt"></i> Gradasi Biru & Kuning</div>
+                <p style="margin-top:10px">Marketplace Multi Seller dan Multi Buyer + Support Reseller System terintegrasi API Rajaongkir, mirip Bukalapak dan Tokopedia. Sistem ini dibangun dengan mengembangkan platform yang sudah populer di Indonesia, sehingga setiap member yang mendaftar dapat langsung membuat toko atau lapaknya sendiri.</p>
+
+                <div class="feature-list">
+                    <b style="color:#1d4ed8">FITUR LEVEL KONSUMEN :</b>
+                    <ul>
+                        <li>Keranjang Belanja & Konfirmasi Pembayaran</li>
+                        <li>Cari Lapak / Pelapak Terdekat</li>
+                        <li>Chat Langsung dengan Pelapak</li>
+                        <li>History Pemesanan dari Toko / Reseller</li>
+                    </ul>
+                </div>
+
+                <div class="feature-list" style="border-left-color:#facc15">
+                    <b style="color:var(--biru2)">FITUR LEVEL PELAPAK / RESELLER :</b>
+                    <ul>
+                        <li>Pantau Stok Produk & Transaksi Penjualan</li>
+                        <li>Cek Pembayaran Konsumen</li>
+                        <li>Report Keuangan & Bonus Referral</li>
+                        <li>Edit Profile dan Alamat / Domisili Pelapak</li>
+                    </ul>
+                </div>
+
+                <div class="feature-list" style="border-left-color:#1d4ed8">
+                    <b style="color:var(--biru2)">FITUR LEVEL ADMIN :</b>
+                    <ul>
+                        <li>Kelola Penjualan, Pembelian & Konsumen</li>
+                        <li>Kelola seluruh data Toko / Reseller / Pelapak</li>
+                    </ul>
+                </div>
+
+                <div class="gallery">
+                    <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1801/ipopba180100745/91861750.jpg" alt="Halaman Utama Marketplace"><figcaption>Halaman Utama Marketplace</figcaption></figure>
+                    <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300523/97319858.jpg" alt="Detail Produk"><figcaption>Detail Data Produk</figcaption></figure>
+                    <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300528/97324882.jpg" alt="Semua Produk"><figcaption>Semua Produk Pelapak</figcaption></figure>
+                    <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300520/97303171.jpg" alt="Halaman Pelapak"><figcaption>Halaman Utama Pelapak</figcaption></figure>
+                </div>
+
+                <p style="text-align:center;margin-top:18px">
+                    <a class="demo" href="#">DEMO</a>
+                    <a class="download" href="#">DOWNLOAD</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="widget">
+                <form class="search-form" onsubmit="return false">
+                    <input type="text" placeholder="Cari produk / lapak...">
+                    <button class="s-form"><i class="fa fa-search"></i> </button>
+                </form>
+            </div>
+            <div class="widget">
+                <div class="widget-title">Akses Marketplace</div>
+                <a class="btn-block btn-primary-b" href="#">Login</a>
+                <a class="btn-block btn-success-b" href="#">Register</a>
+                <a class="btn-block btn-primary-b" href="#">Chat via WhatsApp</a>
+                <a class="btn-block btn-danger-b" href="#">support@marketplace.com</a>
+            </div>
+            <div class="widget">
+                <div class="widget-title">Produk Terlaris</div>
+                <ul>
+                    <li><a href="#">System IF POS Klinik</a><div class="rssSummary">Rp 1,000,000 — Kang Ipan</div></li>
+                    <li><a href="#">Toko Online Laravel 2026</a><div class="rssSummary">Rp 2,000,000 — Dahry</div></li>
+                    <li><a href="#">HRIS Payroll & Absensi</a><div class="rssSummary">Rp 3,500,000 — Ahmad A</div></li>
+                    <li><a href="#">Website Online Store CI 3</a><div class="rssSummary">Rp 450,000 — Darnell</div></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <div class="widget-title">Forum Diskusi</div>
+                <ul>
+                    <li><a href="#">Cara Upload Project CI 4</a><div class="rssSummary">3 Comment</div></li>
+                    <li><a href="#">Reset Nilai Auto Increment MySQL</a><div class="rssSummary">6 Comment</div></li>
+                    <li><a href="#">Buat Filter Tanggal di CI 3</a><div class="rssSummary">2 Comment</div></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main-container>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="copyright">
+            <div class="copyright-text">Copyright &copy; 2026 <a href="#">Marketplace Gradasi Biru-Kuning</a>. All rights reserved.</div>
+            <div class="footer-nav">
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#" style="color:#facc15"><i class="fa fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
