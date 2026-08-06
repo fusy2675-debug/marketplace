@@ -3,136 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Marketplace Kami - Multi Seller Multi Buyer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Marketplace Multi Seller Multi Buyer + Reseller System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Droid+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="blog">
+<div class="main-container">
 
-    <!-- Trending bar -->
-    <div class="trending">
-        <span class="firstlink">Now Trending:</span>
-        <a href="#">TAJALAPAK Marketplace PRO</a><span class="sep">|</span>
-        <a href="#">Toko Online + Rajaongkir</a><span class="sep">|</span>
-        <a href="#">System Informasi Sekolah</a><span class="sep">|</span>
-        <a href="#">SIASELAH</a>
+    <!-- Trending Articles -->
+    <div class="trending-articles">
+        <ul>
+            <li class="firstlink">Now Trending:</li>
+            <li class="trendingPost"><a href="#">TAJALAPAK Marketplace PRO</a></li>
+            <li class="trendingPost"><a href="#">Marketplace Multi Seller...</a></li>
+            <li class="trendingPost"><a href="#">Toko Online dengan Codei...</a></li>
+            <li class="trendingPost last"><a href="#">SIASELAH – System ...</a></li>
+        </ul>
     </div>
 
     <!-- Header -->
-    <header>
-        <div class="branding">
-            <a id="logo" href="#">Market<span class="dot">Now</span></a>
-            <button id="navToggle" class="nav-toggle" aria-label="Menu">
-                <i class="fa fa-bars"></i>
-            </button>
-            <nav class="primary-navigation" id="primaryNav">
-                <ul>
-                    <li><a href="#">Home<span class="sub">Mulai Disini</span></a></li>
-                    <li><a href="#">Dashboard<span class="sub">Diskusi & Belajar</span></a></li>
-                    <li><a href="#">Produk<span class="sub">Silahkan Order</span></a></li>
-                    <li><a href="#">Toko<span class="sub">Buka Lapak</span></a></li>
-                    <li><a href="#">Kontak<span class="sub">Hubungi Kami</span></a></li>
-                </ul>
-            </nav>
+    <header id="masthead" class="site-header">
+        <div class="site-branding">
+            <h2 id="logo"><a href="#">Market<span class="dot">Now</span></a></h2>
+            <a href="#" id="pull" class="toggle-mobile-menu"><i class="fa-solid fa-bars"></i> Menu</a>
+            <div class="primary-navigation">
+                <nav id="navigation" class="mobile-menu-wrapper">
+                    <ul id="menu-navigation" class="menu clearfix">
+                        <li><a href="#">Home<br><span class="sub">Mulai Disini</span></a></li>
+                        <li><a href="#">Members Area<br><span class="sub">Diskusi &amp; Belajar</span></a></li>
+                        <li><a href="#">Portfolio<br><span class="sub">Hasil Kerja</span></a></li>
+                        <li><a href="#">Product<br><span class="sub">Silahkan Order</span></a></li>
+                        <li><a href="#">Contact Us<br><span class="sub">Hubungi Kami Disini</span></a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-
-        <!-- Info boxes / Stats -->
+    <!-- Info Boxes / Stats -->
+    <div class="row" style="margin:15px 0 0 0">
         <section class="info-row" id="stats"></section>
+    </div>
 
-        <div class="rowx">
-            <!-- Content -->
+    <div id="page" class="single">
+        <div class="content">
+
+            <!-- Article -->
             <article class="article">
-                <h1 class="title">Marketplace Multi Seller Multi Buyer + Reseller System</h1>
-                <div class="grad-underline"></div>
-                <div class="post-info">
-                    <span><i class="fa fa-user"></i> <a href="#">Admin Marketplace</a></span> |
-                    <span><i class="fa fa-clock-o"></i> <span id="currentTime">--:--</span></span> |
-                    <span><i class="fa fa-tag"></i> <a href="#">Marketplace</a>, <a href="#">Multi Seller</a>, <a href="#">Reseller</a></span>
-                </div>
-
-                <div class="post-content">
-                    <span class="feature-tag"><i class="fa fa-bolt"></i> Gradasi Biru & Kuning</span>
-                    <p>Marketplace Multi Seller dan Multi Buyer + Support Reseller System terintegrasi, mirip Bukalapak dan Tokopedia. Sistem ini dibangun dengan mengembangkan platform populer, sehingga setiap member dapat membuka toko / lapaknya sendiri.</p>
-
-                    <!-- Search + filter demo -->
-                    <input type="text" id="productFilter" class="filter-input" placeholder="Cari produk cepat...">
-
-                    <div class="product-grid" id="productGrid">
-                        <div class="feature-list">
-                            <b>PRODUK E-COMMERCE</b>
-                            <ul>
-                                <li>Keranjang Belanja & Konfirmasi Pembayaran</li>
-                                <li>Cari Lapak / Pelapak Terdekat</li>
-                                <li>Chat Langsung dengan Pelapak</li>
-                                <li>History Pemesanan dari Toko / Reseller</li>
-                            </ul>
+                <div id="post" class="post single_post">
+                    <header>
+                        <h1 class="title single-title">Marketplace Multi Seller Multi Buyer + Support Reseller System</h1>
+                        <div class="grad-underline"></div>
+                        <div class="post-info">
+                            <span class="theauthor"><a href="#">Admin Marketplace</a></span> |
+                            <span class="thetime"><i class="fa-regular fa-clock"></i> <span id="currentTime">--:--</span></span> |
+                            <span class="thecategory"><a href="#">Marketplace</a>, <a href="#">Multi Seller</a>, <a href="#">Reseller</a></span> |
+                            <span class="thecomment"><a href="#">1 Komentar</a></span>
                         </div>
-                    </div>
+                    </header>
 
-                    <div class="gallery">
-                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1801/ipopba180100745/91861750.jpg" alt="Halaman Utama"><figcaption>Halaman Utama Marketplace</figcaption></figure>
-                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300523/97319858.jpg" alt="Detail Produk"><figcaption>Detail Data Produk</figcaption></figure>
-                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300528/97324882.jpg" alt="Semua Produk"><figcaption>Semua Produk Pelapak</figcaption></figure>
-                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300520/97303171.jpg" alt="Halaman Pelapak"><figcaption>Halaman Utama Pelapak</figcaption></figure>
-                    </div>
+                    <div class="post-single-content box">
+                        <p>Marketplace Multi Seller dan Multi Buyer + Support Reseller System terintegrasi API Rajaongkir mirip Bukalapak, Tokopedia. Sistem ini dibangun dengan mengembangkan platform yang sudah sangat populer di Indonesia. Setiap member yang mendaftar sudah bisa membuat toko / lapaknya sendiri.</p>
+                        <p>Sistem ini juga menyediakan <b>Bonus Referral</b> dan <b>Bonus Reward</b> kepada toko/reseller, besarannya bisa di-set langsung oleh perusahaan.</p>
 
-                    <p class="action-btns">
-                        <a class="demo" href="#">DEMO</a>
-                        <a class="download" href="#">DOWNLOAD</a>
-                    </p>
+                        <h3 class="section-title">Halaman Utama Marketplace</h3>
+                        <figure class="wp-block-image">
+                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace1-821x1024.png" alt="Halaman Utama Marketplace">
+                            <figcaption>Halaman Utama Marketplace</figcaption>
+                        </figure>
+
+                        <h3 class="section-title">Detail Data Produk</h3>
+                        <figure class="wp-block-image">
+                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace2-1024x719.png" alt="Detail Data Produk">
+                            <figcaption>Detail Data Produk</figcaption>
+                        </figure>
+
+                        <h3 class="section-title">Semua Produk Pelapak</h3>
+                        <figure class="wp-block-image">
+                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace4-1024x765.png" alt="Semua Produk Pelapak">
+                            <figcaption>Semua Produk Pelapak</figcaption>
+                        </figure>
+
+                        <h3 class="section-title">Halaman Utama Admin Marketplace</h3>
+                        <figure class="wp-block-image">
+                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace6-1024x532.png" alt="Halaman Admin">
+                            <figcaption>Halaman Utama Admin Marketplace</figcaption>
+                        </figure>
+
+                        <div class="feature-cols">
+                            <div class="feature-list">
+                                <b><i class="fa-solid fa-user"></i> FITUR LEVEL KONSUMEN :</b>
+                                <ul>
+                                    <li>Halaman statis profil perusahaan</li>
+                                    <li>Video tutorial pemesanan & pembayaran</li>
+                                    <li>Gallery foto produk perusahaan</li>
+                                    <li>Halaman testimoni konsumen</li>
+                                    <li>Keranjang belanja & konfirmasi pembayaran</li>
+                                    <li>List data pelapak terdekat</li>
+                                    <li>Chat langsung dengan pelapak</li>
+                                    <li>History pemesanan dari toko/reseller</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-list">
+                                <b><i class="fa-solid fa-store"></i> FITUR LEVEL PELAPAK/RESELLER :</b>
+                                <ul>
+                                    <li>Memantau stok produk</li>
+                                    <li>Transaksi pembelian / penambahan stok</li>
+                                    <li>Transaksi penjualan ke konsumen</li>
+                                    <li>Cek pembayaran konsumen</li>
+                                    <li>Kelola no rekening pelapak</li>
+                                    <li>Report keuangan (belanja, penjualan, modal)</li>
+                                    <li>Report bonus referral dan reward</li>
+                                    <li>Edit profile dan alamat pelapak</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-list">
+                                <b><i class="fa-solid fa-shield-halved"></i> FITUR LEVEL ADMIN :</b>
+                                <ul>
+                                    <li>Mengelola penjualan & pembelian</li>
+                                    <li>Mengelola konsumen</li>
+                                    <li>Mengelola data toko/reseller/pelapak</li>
+                                    <li>Akses penuh semua modul marketplace</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p style="text-align:center;margin-top:20px">
+                            <a class="demo" href="#">DEMO</a>
+                            <a class="download" href="#">DOWNLOAD</a>
+                        </p>
+                    </div>
                 </div>
             </article>
 
             <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="widget">
-                    <form class="search-form" onsubmit="return false">
-                        <input type="text" placeholder="Cari produk / lapak...">
-                        <button class="sbutton"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="widget">
-                    <div class="widget-title">Akses Marketplace</div>
-                    <a class="btn-block btn-primary-b" href="#">Login</a>
-                    <a class="btn-block btn-success-b" href="#">Register</a>
-                    <a class="btn-block btn-primary-b" href="#">Chat via WhatsApp</a>
-                    <a class="btn-block btn-danger-b" href="#">support@marketplace.com</a>
-                </div>
-                <div class="widget">
-                    <div class="widget-title">Produk Terlaris</div>
-                    <ul id="bestSellerList">
-                        <!-- diisi oleh JS -->
-                    </ul>
-                </div>
-                <div class="widget">
-                    <div class="widget-title">Forum Diskusi</div>
-                    <ul id="forumList">
-                        <!-- diisi oleh JS -->
-                    </ul>
+            <aside class="sidebar c-4-12">
+                <div id="sidebars" class="sidebar">
+                    <div class="sidebar_list">
+
+                        <aside class="widget widget_search">
+                            <form class="search-form" onsubmit="return false">
+                                <fieldset>
+                                    <input type="text" placeholder="Search the site">
+                                    <button class="sbutton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </fieldset>
+                            </form>
+                        </aside>
+
+                        <aside class="widget">
+                            <p>
+                                <a class="btn btn-primary btn-block" href="#">Login</a>
+                                <a class="btn btn-primary btn-block" href="#">Register</a>
+                                <a class="btn btn-success btn-block" href="#">Chat by Whatsapp</a>
+                                <a class="btn btn-danger btn-block" href="#">support@marketplace.com</a>
+                            </p>
+                        </aside>
+
+                        <aside class="widget widget_rss">
+                            <h3 class="widget-title">Project Remote</h3>
+                            <ul id="projectList"></ul>
+                        </aside>
+
+                        <aside class="widget widget_rss">
+                            <h3 class="widget-title">Forum Jual Beli</h3>
+                            <ul id="bestSellerList"></ul>
+                        </aside>
+
+                        <aside class="widget widget_rss">
+                            <h3 class="widget-title">Forum Diskusi</h3>
+                            <ul id="forumList"></ul>
+                        </aside>
+
+                    </div>
                 </div>
             </aside>
+
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-inner">
-            <div class="copyright">
-                <div class="copyright-text">Copyright &copy; <span id="currentYear"></span> Marketplace Gradasi Biru-Kuning. All rights reserved.</div>
-                <div class="footer-nav">
-                    <a href="#">About Us</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#" class="to-top"><i class="fa fa-arrow-up"></i></a>
+            <div class="copyrights">
+                <div class="row" id="copyright-note">
+                    <div class="copyright-left-text">Copyright &copy; <span id="currentYear"></span> <a href="#">Marketplace Gradasi Biru-Kuning</a>.</div>
+                    <div class="footer-navigation">
+                        <ul class="menu">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li class="top"><a href="#top"><i class="fa-solid fa-arrow-up"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+</div>
+<script src="js/script.js"></script>
 </body>
 </html>
