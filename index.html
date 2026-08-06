@@ -1,243 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id-ID">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mizanstore Clone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marketplace Kami - Multi Seller Multi Buyer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
+<body>
+
+    <!-- Trending bar -->
+    <div class="trending">
+        <span class="firstlink">Now Trending:</span>
+        <a href="#">TAJALAPAK Marketplace PRO</a><span class="sep">|</span>
+        <a href="#">Toko Online + Rajaongkir</a><span class="sep">|</span>
+        <a href="#">System Informasi Sekolah</a><span class="sep">|</span>
+        <a href="#">SIASELAH</a>
+    </div>
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="text-2xl font-bold text-blue-600">
-                Mizan<span class="text-gray-800">store</span>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="hidden md:flex flex-1 mx-8">
-                <div class="relative w-full">
-                    <input type="text" placeholder="Cari buku favorit Anda..." class="w-full border border-gray-300 rounded-full py-2 px-5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <button class="absolute right-3 top-2.5 text-gray-400">
-                        <i data-lucide="search" class="w-5 h-5"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Icons -->
-            <div class="flex items-center space-x-5">
-                <button class="text-gray-600 hover:text-blue-600">
-                    <i data-lucide="user" class="w-6 h-6"></i>
-                </button>
-                <button class="text-gray-600 hover:text-blue-600 relative">
-                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
-                </button>
-                <button class="md:hidden text-gray-600">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+    <header>
+        <div class="branding">
+            <a id="logo" href="#">Market<span class="dot">Now</span></a>
+            <button id="navToggle" class="nav-toggle" aria-label="Menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <nav class="primary-navigation" id="primaryNav">
+                <ul>
+                    <li><a href="#">Home<span class="sub">Mulai Disini</span></a></li>
+                    <li><a href="#">Dashboard<span class="sub">Diskusi & Belajar</span></a></li>
+                    <li><a href="#">Produk<span class="sub">Silahkan Order</span></a></li>
+                    <li><a href="#">Toko<span class="sub">Buka Lapak</span></a></li>
+                    <li><a href="#">Kontak<span class="sub">Hubungi Kami</span></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="container mx-auto px-4 mt-6">
-        <div class="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center">
-            <div class="absolute inset-0 opacity-20">
-                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1000" alt="background" class="w-full h-full object-cover">
-            </div>
-            <div class="relative z-10 px-8 md:px-16 text-white">
-                <h1 class="text-3xl md:text-5xl font-bold mb-4">Promo Buku Bulan Ini!</h1>
-                <p class="text-lg md:text-xl mb-6 opacity-90">Dapatkan diskon hingga 50% untuk koleksi buku pilihan.</p>
-                <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Belanja Sekarang</button>
-            </div>
+    <main class="container">
+
+        <!-- Info boxes / Stats -->
+        <section class="info-row" id="stats"></section>
+
+        <div class="rowx">
+            <!-- Content -->
+            <article class="article">
+                <h1 class="title">Marketplace Multi Seller Multi Buyer + Reseller System</h1>
+                <div class="grad-underline"></div>
+                <div class="post-info">
+                    <span><i class="fa fa-user"></i> <a href="#">Admin Marketplace</a></span> |
+                    <span><i class="fa fa-clock-o"></i> <span id="currentTime">--:--</span></span> |
+                    <span><i class="fa fa-tag"></i> <a href="#">Marketplace</a>, <a href="#">Multi Seller</a>, <a href="#">Reseller</a></span>
+                </div>
+
+                <div class="post-content">
+                    <span class="feature-tag"><i class="fa fa-bolt"></i> Gradasi Biru & Kuning</span>
+                    <p>Marketplace Multi Seller dan Multi Buyer + Support Reseller System terintegrasi, mirip Bukalapak dan Tokopedia. Sistem ini dibangun dengan mengembangkan platform populer, sehingga setiap member dapat membuka toko / lapaknya sendiri.</p>
+
+                    <!-- Search + filter demo -->
+                    <input type="text" id="productFilter" class="filter-input" placeholder="Cari produk cepat...">
+
+                    <div class="product-grid" id="productGrid">
+                        <div class="feature-list">
+                            <b>PRODUK E-COMMERCE</b>
+                            <ul>
+                                <li>Keranjang Belanja & Konfirmasi Pembayaran</li>
+                                <li>Cari Lapak / Pelapak Terdekat</li>
+                                <li>Chat Langsung dengan Pelapak</li>
+                                <li>History Pemesanan dari Toko / Reseller</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="gallery">
+                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1801/ipopba180100745/91861750.jpg" alt="Halaman Utama"><figcaption>Halaman Utama Marketplace</figcaption></figure>
+                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300523/97319858.jpg" alt="Detail Produk"><figcaption>Detail Data Produk</figcaption></figure>
+                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300528/97324882.jpg" alt="Semua Produk"><figcaption>Semua Produk Pelapak</figcaption></figure>
+                        <figure><img src="https://previews.123rf.com/images/ipopba/ipopba1803/ipopba180300520/97303171.jpg" alt="Halaman Pelapak"><figcaption>Halaman Utama Pelapak</figcaption></figure>
+                    </div>
+
+                    <p class="action-btns">
+                        <a class="demo" href="#">DEMO</a>
+                        <a class="download" href="#">DOWNLOAD</a>
+                    </p>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <form class="search-form" onsubmit="return false">
+                        <input type="text" placeholder="Cari produk / lapak...">
+                        <button class="sbutton"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="widget">
+                    <div class="widget-title">Akses Marketplace</div>
+                    <a class="btn-block btn-primary-b" href="#">Login</a>
+                    <a class="btn-block btn-success-b" href="#">Register</a>
+                    <a class="btn-block btn-primary-b" href="#">Chat via WhatsApp</a>
+                    <a class="btn-block btn-danger-b" href="#">support@marketplace.com</a>
+                </div>
+                <div class="widget">
+                    <div class="widget-title">Produk Terlaris</div>
+                    <ul id="bestSellerList">
+                        <!-- diisi oleh JS -->
+                    </ul>
+                </div>
+                <div class="widget">
+                    <div class="widget-title">Forum Diskusi</div>
+                    <ul id="forumList">
+                        <!-- diisi oleh JS -->
+                    </ul>
+                </div>
+            </aside>
         </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="container mx-auto px-4 mt-10">
-        <h2 class="text-xl font-bold text-gray-800 mb-6">Kategori Populer</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <!-- Category Item -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-3">
-                    <i data-lucide="book-open"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Fiksi</span>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-3">
-                    <i data-lucide="brain"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Self Improvement</span>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 mb-3">
-                    <i data-lucide="history"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Sejarah</span>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 mb-3">
-                    <i data-lucide="microscope"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Sains</span>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-3">
-                    <i data-lucide="palette"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Seni</span>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center cursor-pointer hover:shadow-md transition">
-                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-3">
-                    <i data-lucide="smile"></i>
-                </div>
-                <span class="text-sm font-medium text-gray-700">Anak-anak</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Grid -->
-    <section class="container mx-auto px-4 mt-12 mb-20">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-gray-800">Produk Terbaru</h2>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Lihat Semua</a>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            <!-- Product Card 1 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-lg transition">
-                <div class="relative aspect-[3/4] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400" alt="book" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-20%</span>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 mb-1">Judul Buku yang Menarik Sekali</h3>
-                    <p class="text-xs text-gray-500 mb-2">Penulis Buku</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-600 font-bold">Rp 85.000</span>
-                        <button class="text-gray-400 hover:text-blue-600 transition">
-                            <i data-lucide="heart" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 2 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-lg transition">
-                <div class="relative aspect-[3/4] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=400" alt="book" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                </div>
-                <div class="p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 mb-1">Explorasi Dunia Imajinasi</h3>
-                    <p class="text-xs text-gray-500 mb-2">Penulis Buku</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-600 font-bold">Rp 120.000</span>
-                        <button class="text-gray-400 hover:text-blue-600 transition">
-                            <i data-lucide="heart" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 3 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-lg transition">
-                <div class="relative aspect-[3/4] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400" alt="book" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-10%</span>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 mb-1">Seni Berpikir Kreatif</h3>
-                    <p class="text-xs text-gray-500 mb-2">Penulis Buku</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-600 font-bold">Rp 95.000</span>
-                        <button class="text-gray-400 hover:text-blue-600 transition">
-                            <i data-lucide="heart" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 4 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-lg transition">
-                <div class="relative aspect-[3/4] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=400" alt="book" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                </div>
-                <div class="p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 mb-1">Rahasia Kehidupan Sehat</h3>
-                    <p class="text-xs text-gray-500 mb-2">Penulis Buku</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-600 font-bold">Rp 150.000</span>
-                        <button class="text-gray-400 hover:text-blue-600 transition">
-                            <i data-lucide="heart" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 5 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-lg transition">
-                <div class="relative aspect-[3/4] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400" alt="book" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                </div>
-                <div class="p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 mb-1">Sejarah Peradaban Dunia</h3>
-                    <p class="text-xs text-gray-500 mb-2">Penulis Buku</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-600 font-bold">Rp 210.000</span>
-                        <button class="text-gray-400 hover:text-blue-600 transition">
-                            <i data-lucide="heart" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-12">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="text-2xl font-bold text-white mb-4">
-                    Mizan<span class="text-blue-400">store</span>
-                </div>
-                <p class="text-sm">Platform toko buku online terpercaya di Indonesia. Temukan ribuan judul buku menarik untuk Anda.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Tautan Cepat</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Tentang Kami</a></li>
-                    <li><a href="#" class="hover:text-white transition">Kontak Kami</a></li>
-                    <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
-                    <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Hubungi Kami</h4>
-                <p class="text-sm mb-2">Email: support@mizanstore.com</p>
-                <p class="text-sm">WhatsApp: +62 812 3456 7890</p>
-                <div class="flex space-x-4 mt-6">
-                    <a href="#" class="hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    <a href="#" class="hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="#" class="hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+    <footer>
+        <div class="footer-inner">
+            <div class="copyright">
+                <div class="copyright-text">Copyright &copy; <span id="currentYear"></span> Marketplace Gradasi Biru-Kuning. All rights reserved.</div>
+                <div class="footer-nav">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#" class="to-top"><i class="fa fa-arrow-up"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-700 text-center text-xs">
-            <p>&copy; 2026 Mizanstore Clone. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
