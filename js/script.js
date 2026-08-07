@@ -11,7 +11,17 @@ let products = [
     { id: 6, name: 'Beras Premium 5kg', category: 'Sembako', buyPrice: 65000, sellPrice: 72000, stock: 8, icon: 'fa-solid fa-sack-dollar' },
     { id: 7, name: 'Powerbank 10000mAh', category: 'Elektronik', buyPrice: 95000, sellPrice: 135000, stock: 2, icon: 'fa-solid fa-battery-full' },
     { id: 8, name: 'Kabel Data Type-C', category: 'Elektronik', buyPrice: 15000, sellPrice: 25000, stock: 15, icon: 'fa-solid fa-charging-station' },
-    { id: 9, name: 'Keripik Singkong Balado', category: 'Makanan', buyPrice: 6000, sellPrice: 10000, stock: 20, icon: 'fa-solid fa-cookie' }
+    { id: 9, name: 'Keripik Singkong Balado', category: 'Makanan', buyPrice: 6000, sellPrice: 10000, stock: 20, icon: 'fa-solid fa-cookie' },
+    { id: 10, name: 'Telur Ayam Nestro 10 Butir', category: 'Sembako', buyPrice: 20000, sellPrice: 24000, stock: 15, icon: 'fa-solid fa-egg' },
+    { id: 11, name: 'Indomie Goreng Original', category: 'Makanan', buyPrice: 4000, sellPrice: 6500, stock: 0, icon: 'fa-solid fa-bowl-food' },
+    { id: 12, name: 'Susu Sachet Coklat 250ml', category: 'Minuman', buyPrice: 4500, sellPrice: 7500, stock: 30, icon: 'fa-solid fa-glass-whiskey' },
+    { id: 13, name: 'Cheetos Pedas', category: 'Makanan', buyPrice: 7000, sellPrice: 12000, stock: 6, icon: 'fa-solid fa-bag-of-chips' },
+    { id: 14, name: 'Teh Botol Hangets', category: 'Minuman', buyPrice: 3500, sellPrice: 6000, stock: 18, icon: 'fa-solid fa-glass-water' },
+    { id: 15, name: 'Sambal Matah', category: 'Sembako', buyPrice: 12000, sellPrice: 16000, stock: 9, icon: 'fa-solid fa-pepper-hot' },
+    { id: 16, name: 'Keripik Tempe Original', category: 'Makanan', buyPrice: 8000, sellPrice: 13000, stock: 11, icon: 'fa-solid fa-cookie-bite' },
+    { id: 17, name: 'Flashdisk 32GB', category: 'Elektronik', buyPrice: 55000, sellPrice: 85000, stock: 1, icon: 'fa-solid fa-thumb-tack' },
+    { id: 18, name: ' Charger HP 18W', category: 'Elektronik', buyPrice: 25000, sellPrice: 40000, stock: 7, icon: 'fa-solid fa-charging-station' },
+    { id: 19, name: 'Bubur Ayam Komplit', category: 'Makanan', buyPrice: 7500, sellPrice: 12000, stock: 3, icon: 'fa-solid fa-bowl-food' }
 ];
 
 let cart = [];
