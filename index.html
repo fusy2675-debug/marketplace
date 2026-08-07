@@ -26,6 +26,9 @@
     <header id="masthead" class="site-header">
         <div class="site-branding">
             <h2 id="logo"><a href="#">Market<span class="dot">Now</span></a></h2>
+            <div class="header-cart">
+                <a href="#" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+            </div>
             <a href="#" id="pull" class="toggle-mobile-menu"><i class="fa-solid fa-bars"></i> Menu</a>
             <div class="primary-navigation">
                 <nav id="navigation" class="mobile-menu-wrapper">
@@ -41,10 +44,43 @@
         </div>
     </header>
 
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-inner">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Marketplace Indonesia</span>
+            <h1 class="hero-title">Jual Beli Lebih<br><span class="grad-text">Cepat &amp; Aman</span></h1>
+            <p class="hero-sub">Platform multi seller &amp; multi buyer dengan dukungan sistem reseller. Buka lapak Anda, kelola stok, dan raih penghasilan dalam satu tempat.</p>
+            <div class="hero-actions">
+                <a href="#" class="hero-btn hero-btn-primary">Mulai Jualan <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#" class="hero-btn hero-btn-ghost"><i class="fa-solid fa-play"></i> Lihat Demo</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Info Boxes / Stats -->
     <div class="row" style="margin:15px 0 0 0">
         <section class="info-row" id="stats"></section>
     </div>
+
+    <!-- Kategori Produk -->
+    <section class="section-block">
+        <div class="section-head">
+            <h2 class="section-title2">Kategori Populer</h2>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <!-- Grid Produk -->
+    <section class="section-block">
+        <div class="section-head">
+            <h2 class="section-title2">Produk Terbaru</h2>
+            <a href="#" class="see-all">Lihat Semua <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <input type="text" id="productFilter" class="filter-input" placeholder="Cari produk cepat...">
+        <div class="product-grid" id="productGrid"></div>
+    </section>
 
     <div id="page" class="single">
         <div class="content">
@@ -67,29 +103,7 @@
                         <p>Marketplace Multi Seller dan Multi Buyer + Support Reseller System terintegrasi API Rajaongkir mirip Bukalapak, Tokopedia. Sistem ini dibangun dengan mengembangkan platform yang sudah sangat populer di Indonesia. Setiap member yang mendaftar sudah bisa membuat toko / lapaknya sendiri.</p>
                         <p>Sistem ini juga menyediakan <b>Bonus Referral</b> dan <b>Bonus Reward</b> kepada toko/reseller, besarannya bisa di-set langsung oleh perusahaan.</p>
 
-                        <h3 class="section-title">Halaman Utama Marketplace</h3>
-                        <figure class="wp-block-image">
-                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace1-821x1024.png" alt="Halaman Utama Marketplace">
-                            <figcaption>Halaman Utama Marketplace</figcaption>
-                        </figure>
 
-                        <h3 class="section-title">Detail Data Produk</h3>
-                        <figure class="wp-block-image">
-                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace2-1024x719.png" alt="Detail Data Produk">
-                            <figcaption>Detail Data Produk</figcaption>
-                        </figure>
-
-                        <h3 class="section-title">Semua Produk Pelapak</h3>
-                        <figure class="wp-block-image">
-                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace4-1024x765.png" alt="Semua Produk Pelapak">
-                            <figcaption>Semua Produk Pelapak</figcaption>
-                        </figure>
-
-                        <h3 class="section-title">Halaman Utama Admin Marketplace</h3>
-                        <figure class="wp-block-image">
-                            <img src="https://phpmu.com/wp-content/uploads/2019/03/marketplace6-1024x532.png" alt="Halaman Admin">
-                            <figcaption>Halaman Utama Admin Marketplace</figcaption>
-                        </figure>
 
                         <div class="feature-cols">
                             <div class="feature-list">

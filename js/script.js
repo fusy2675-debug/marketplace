@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     renderStats();
+    renderCategories();
+    renderProducts();
+    initProductFilter();
+    initAddToCart();
     renderProjects();
     renderBestSellers();
     renderForums();
@@ -32,7 +36,88 @@ function renderStats() {
     `).join('');
 }
 
-// 2. Project remote
+// 2. Kategori produk
+const categories = [
+    { icon: 'fa-solid fa-mobile-screen',   label: 'Elektronik' },
+    { icon: 'fa-solid fa-shirt',           label: 'Fashion' },
+    { icon: 'fa-solid fa-book',            label: 'Buku' },
+    { icon: 'fa-solid fa-utensils',        label: 'F&B' },
+    { icon: 'fa-solid fa-couch',           label: 'Home & Living' },
+    { icon: 'fa-solid fa-gamepad',         label: 'Gaming' }
+];
+
+function renderCategories() {
+    const el = document.getElementById('categoryGrid');
+    if (!el) return;
+    el.innerHTML = categories
+        .map(c => `<div class="category-item"><i class="fa-solid ${c.icon}"></i><span>${c.label}</span></div>`)
+        .join('');
+}
+
+// 3. Produk
+const products = [
+    { name: 'Smartphone X Pro 5G',       store: 'Gadget Store', price: 3499000, old: 3999000, disc: '12%' },
+    { name: 'Kemeja Flannel Pria',       store: 'FashionID',   price: 179000,  old: 220000,  disc: '18%' },
+    { name: 'Novel Best Seller 2026',    store: 'Buku Kita',    price: 98000,   old: 120000,  disc: '20%' },
+    { name: 'Headset Gaming RGB',        store: 'TechZone',     price: 295000,  old: 350000,  disc: '15%' },
+    { name: 'Jam Tangan Analog',        store: 'Accessories',   price: 375000,  old: null,    disc: null },
+    { name: 'Sepatu Sneakers',          store: 'Footwear',      price: 450000,  old: 520000,  disc: '13%' },
+    { name: 'Tas Ransel Premium',        store: 'BagsID',        price: 210000,  old: null,    disc: null },
+    { name: 'Lampu LED Smart',          store: 'HomeSet',        price: 89000,   old: 110000,  disc: '19%' }
+];
+
+function formatIDR(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
+
+function productCard(p) {
+    const disc = p.disc ? `<span class="product-discount">-${p.disc}</span>` : '';
+    const old = p.old ? `<span class="old">${formatIDR(p.old)}</span>` : '';
+    return `
+        <div class="product-card" data-name="${p.name.toLowerCase()}">
+            ${disc}
+            <div class="product-thumb"><i class="fa-solid fa-cube"></i></div>
+            <div class="product-body">
+                <div class="product-name">${p.name}</div>
+                <div class="product-store"><i class="fa-solid fa-store"></i> ${p.store}</div>
+                <div class="product-price">${old}${formatIDR(p.price)}</div>
+                <button class="add-cart" data-name="${p.name}"><i class="fa-solid fa-cart-plus"></i> Masukkan Keranjang</button>
+            </div>
+        </div>`;
+}
+
+function renderProducts() {
+    const el = document.getElementById('productGrid');
+    if (!el) return;
+    el.innerHTML = products.map(productCard).join('');
+}
+
+// 4. Filter produk
+function initProductFilter() {
+    const input = document.getElementById('productFilter');
+    if (!input) return;
+    input.addEventListener('input', function () {
+        const q = this.value.toLowerCase();
+        const grid = document.getElementById('productGrid');
+        const filtered = products.filter(p => p.name.toLowerCase().includes(q));
+        grid.innerHTML = filtered.length
+            ? filtered.map(productCard).join('')
+            : '<p style="color:#94a3b8">Tidak ada produk ditemukan.</p>';
+    });
+}
+
+// 5. Keranjang
+let cartItems = [];
+function initAddToCart() {
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.add-cart')) {
+            const name = e.target.closest('.add-cart').dataset.name;
+            cartItems.push(name);
+            document.getElementById('cartCount').textContent = cartItems.length;
+            alert(name + ' ditambahkan ke keranjang!');
+        }
+    });
+}
+
+// 6. Project remote
 const projects = [
     { name: 'Pengembangan Sistem POS',        price: 'Rp 1,000,000', owner: 'Kang Ipan' },
     { name: 'Webview + FireBase',             price: 'Rp 350,000',   owner: 'Roki Hasri' },
