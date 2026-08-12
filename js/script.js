@@ -450,7 +450,26 @@ function viewReceiptAgain(txId) {
 }
 
 function printReceipt() {
-    window.print();
+    const printContents = document.getElementById('receiptPrintArea').innerHTML;
+    const popupWin = window.open('', '_blank', 'width=400,height=600');
+    popupWin.document.write(`
+        <html>
+            <head>
+                <title>Print Struk daisyfumarket</title>
+                <style>
+                    body { margin: 0; padding: 0; font-family: 'Courier New', monospace; }
+                    @media print {
+                        .no-print { display: none !important; }
+                    }
+                </style>
+            </head>
+            <body>${printContents}</body>
+        </html>
+    `);
+    popupWin.document.close();
+    popupWin.focus();
+    popupWin.print();
+    popupWin.close();
 }
 
 function downloadReceiptImage() {
