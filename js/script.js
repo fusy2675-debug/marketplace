@@ -450,8 +450,12 @@ function viewReceiptAgain(txId) {
 }
 
 function printReceipt() {
+    console.log('printReceipt triggered');
     const printContents = document.getElementById('receiptPrintArea').innerHTML;
-    const styles = `
+    if (!printContents) {
+        alert('Gagal menemukan area struk untuk dicetak.');
+        return;
+    }
         body { margin: 0; padding: 0; font-family: 'Courier New', monospace; background: #fff; }
         @media print { .no-print { display: none !important; } }
         .receipt-paper { padding: 0; }
