@@ -451,21 +451,41 @@ function viewReceiptAgain(txId) {
 
 function printReceipt() {
     const printContents = document.getElementById('receiptPrintArea').innerHTML;
+    const styles = `
+        body { margin: 0; padding: 0; font-family: 'Courier New', monospace; background: #fff; }
+        @media print { .no-print { display: none !important; } }
+        .receipt-paper { padding: 0; }
+        .receipt-header h2 { font-size: 18px; margin-bottom: 5px; }
+        .receipt-header p { font-size: 12px; margin: 2px 0; }
+        .receipt-divider { font-size: 12px; letter-spacing: -1px; color: #666; margin: 8px 0; text-align: center; }
+        .receipt-meta { font-size: 12px; margin-bottom: 8px; }
+        .receipt-meta div { display: flex; justify-content: space-between; margin-bottom: 2px; }
+        .receipt-items { font-size: 12px; }
+        .r-item { margin-bottom: 6px; }
+        .r-item-name { font-weight: bold; }
+        .r-item-calc { display: flex; justify-content: space-between; color: #333; }
+        .receipt-totals { font-size: 12px; margin-top: 8px; }
+        .r-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .r-row.total { font-weight: bold; font-size: 14px; border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 4px 0; margin: 4px 0; }
+        .receipt-footer { text-align: center; font-size: 12px; margin-top: 12px; }
+        .genz-tag { font-size: 10px; color: #2563eb; margin-top: 4px; font-weight: bold; }
+    `;
+
     const popupWin = window.open('', '_blank', 'width=400,height=600');
-    popupWin.document.write(`
+    if (!popupWin) {
+        alert('Popup diblokir! Izinkan popup untuk mencetak struk.');
+        return;
+    }
+
+    popupWin.document.write(\`
         <html>
             <head>
                 <title>Print Struk daisyfumarket</title>
-                <style>
-                    body { margin: 0; padding: 0; font-family: 'Courier New', monospace; }
-                    @media print {
-                        .no-print { display: none !important; }
-                    }
-                </style>
+                <style>\${styles}</style>
             </head>
-            <body>${printContents}</body>
+            <body>\${printContents}</body>
         </html>
-    `);
+    \`);
     popupWin.document.close();
     popupWin.focus();
     popupWin.print();
