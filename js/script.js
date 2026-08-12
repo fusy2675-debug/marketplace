@@ -325,6 +325,7 @@ function updateCartCalculation() {
 
 // Payment Modal
 function openPaymentModal(method) {
+    console.log('openPaymentModal triggered with method:', method, 'cart:', cart);
     if (cart.length === 0) {
         alert('Keranjang belanja masih kosong!');
         return;
