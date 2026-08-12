@@ -33,12 +33,14 @@ let currentPaymentMethod = 'Tunai';
 let selectedCategoryPos = 'All';
 
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOM fully loaded and parsed. Initializing app...');
     initClock();
     initNavigation();
     renderDashboard();
     renderPosCatalog();
     renderInventoryTable();
     updateCartCalculation();
+    console.log('Initialization complete.');
 });
 
 // Navigation Tabs
